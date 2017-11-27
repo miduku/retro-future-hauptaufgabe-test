@@ -1,11 +1,258 @@
 /* Import dependency (from node_modules) … */
 @import "normalize.css";
 
-$border-width: 4px;
+$maxWidth: 1920px;
+$padding: 1rem;
+$paddingTop: 100vw/12;
 
-/* Your styles here … */
-h1 {
-  border: $border-width solid red;
-  font-weight: normal;
+// https://www.sitepoint.com/hsb-colors-with-sass/
+@function hsb($h-hsb, $s-hsb, $b-hsb, $a: 1) {
+  @if $b-hsb == 0 {
+    @return hsla(0, 0, 0, $a)
+  } @else {
+    $l-hsl: ($b-hsb/2) * (2 - ($s-hsb/100));
+    $s-hsl: ($b-hsb * $s-hsb) / if($l-hsl < 50, $l-hsl * 2, 200 - $l-hsl * 2);
+    @return hsla($h-hsb, $s-hsl, $l-hsl, $a);
+  }
+}
+
+// colors
+$blue: hsb(234, 92, 98);
+$red: hsb(333, 87, 92);
+$yellow: hsb(39, 91, 94);
+$yellow-alpha: hsb(39, 91, 94, .15);
+$green: hsb(111, 96, 96);
+
+
+// Let's a go!!
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  font-family: 'calluna sans', sans-serif;
+  // font-size: .6vw;
+  font-size: 16px;
+  line-height: 1.25;
+  hyphens: auto;
+}
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section,
+main {
+  display: block;
+}
+
+
+
+
+// grid
+.column {
+  position: relative;
+  display: block;
+  padding: $padding;
+
+  &.align-self-end {
+    align-self: flex-end;
+  }
+
+  &.align-self-center {
+    align-self: center;
+  }
+
+  @for $i from 1 through 12 {
+    .columns > &.is-#{$i} {
+      width: ($i / 12) * 100%;
+      flex: none;
+    }
+
+    .columns > &.is-offset-#{$i} {
+      margin-left: ($i / 12) * 100%;
+    }
+  }
+}
+
+.columns {
   display: flex;
+  flex-wrap: wrap;
+  // margin-left: (-$padding);
+  // margin-right: (-$padding);
+  // margin-top: (-$padding);
+
+  // &:last-child {
+  //   margin-bottom: (-$padding);
+  // }
+
+  // &:not(:last-child) {
+  //   margin-bottom: calc(1.5rem - #{$padding});
+  // }
+
+  &.is-streched {
+    align-items: stretch;
+    height: 100%;
+  }
+}
+
+
+// Type
+h1 {
+  font-size: 13.375rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: .1em;
+  hyphens: none;
+}
+
+h2 {
+  font-size: 3.75rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: .1em;
+  hyphens: none;
+}
+
+p {
+  letter-spacing: .01em;
+  font-size: 1.5rem;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.text {
+  color: darken($blue, 30%);
+  padding-top: $paddingTop/2;
+  mix-blend-mode: hard-light;
+
+  header {
+    position: absolute;
+
+    h2 {
+      position: absolute;
+      transform-origin: top left;
+      transform: rotate(90deg) translateY(-3rem);
+    }
+  }
+
+  p:nth-child(odd) {
+    padding-left: $padding*2;
+  }
+}
+
+.title {
+  mix-blend-mode: color-dodge;
+  color: $red;
+  text-transform: uppercase;
+  z-index: -1;
+}
+
+
+
+// Rest of the css
+.background {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background: url('../assets/img/cafeteria.jpg') 50% 50% no-repeat;
+  background-size: cover;
+  filter: grayscale(100%);
+  z-index: -1;
+}
+
+.root {
+  width: 100%;
+  
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $maxWidth;
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+header.root {
+  height: 100vh;
+  padding-top: $paddingTop;
+  color: #fff;
+
+  > .container {
+    height: 100%;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: $blue;
+    opacity: .75;
+    z-index: -1;
+    mix-blend-mode: multiply;
+  }
+   
+    .title {
+      position: absolute;
+      line-height: 1.2;
+      width: 100%;
+
+      h1 {
+        position: absolute;
+        left: 100%;
+        transform: rotateZ(90deg) translateY(3rem);
+        transform-origin: top left;
+      }
+    }
+
+    .intro {
+      font-size: 2.25rem;
+      // background: hotpink;
+      margin-bottom: 10%;
+      font-weight: 400;
+    }
+
+    .author {
+      position: absolute;
+      font-weight: 100;
+      font-variant-caps: petite-caps;
+      font-size: 1.5rem;
+      left: ((1/12)*6) * 100%;
+
+      strong {
+        font-weight: 600;
+      }
+
+      span {
+        display: block;
+      }
+
+      .name {
+        padding-left: $padding;
+      }
+    }
+}
+
+main.root {
+  background: $yellow-alpha;
+
 }

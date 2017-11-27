@@ -28,6 +28,7 @@
     "autoprefixer": "^7.1.6",
     "babel-runtime": "^6.26.0",
     "normalize.css": "^7.0.0",
-    "postcss-font-variant": "^3.0.0"
+    "postcss-font-variant": "^3.0.0",
+    "rellax": "^1.4.0"
   }
 }
