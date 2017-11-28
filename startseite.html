@@ -37,8 +37,8 @@
         }
         .bild-1 {
             position: absolute;
-            top: -20%;
-            right: 10%;
+            top: -28%;
+            right: -8%;
             width: 40%;
             animation: .7s infinite alternate blinky;
             transform: rotate(-10deg);
@@ -53,9 +53,9 @@
         }
         .bild-2 {
             position: absolute;
-            width: 17%;
-            bottom: -10%;
-            animation: 2.4s linear moveit infinite;
+            width: 19%;
+            bottom: -8%;
+            animation: 3s linear moveit infinite;
         }
         .beitrag-3 {
             position: relative;
@@ -142,10 +142,10 @@
         }
         @keyframes wobble {
             from {
-                transform: rotate(-15deg);
+                transform: rotate(-10deg);
             }
             to {
-                transform: rotate(15deg);
+                transform: rotate(10deg);
             }
         }
         @keyframes rotation {
@@ -155,11 +155,19 @@
         }
         @keyframes moveit {
             from {
-                left: 50%;
+                left: 80%;
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
             }
             to {
-                left: -30%;
-                transform: translateX(30%);
+                left: -40%;
+                transform: translateX(40%);
+                opacity: 0;
             }
         }
     </style> 
@@ -169,7 +177,7 @@
         <div class="columns is-stretched">
             <div class="column is-4 is-stretched beitrag-1">
                 <p>Warum das Studiroulette ein Ende finden muss</p>
-                <img class="bild bild-1" src="assets/img/bild-1.svg">
+                <img class="bild bild-1" src="assets/img/bild-1b.svg">
             </div>
             <div class="column is-4 is-offset-3 is-stretched beitrag-2">
                 <p>Nextbike: FHP-Studierende bewegen sich</p>
