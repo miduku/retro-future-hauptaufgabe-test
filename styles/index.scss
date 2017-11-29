@@ -34,7 +34,8 @@ $green: hsb(111, 96, 96);
 }
 
 html {
-  font-family: 'calluna sans', sans-serif;
+  // font-family: 'calluna sans', sans-serif;
+  font-family: sans-serif;
   // font-size: .6vw;
   font-size: 16px;
   line-height: 1.25;
@@ -51,6 +52,37 @@ section,
 main {
   display: block;
 }
+
+nav {
+  .logo {
+    color: #fff;
+    display: block;
+    background: url('../assets/img/2x/semikolon-logo-komplet@2x.png') 50% 50% no-repeat;
+    background-size: contain;
+    height: 10rem;
+    margin-bottom: $paddingTop;
+  }
+
+  ul {
+    list-style: none;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    a {
+      color: #fff;
+    }
+  }
+}
+
+// Kellum Image Replacement
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+.kellumIR {
+  text-indent: 200%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 
 
 
@@ -110,6 +142,11 @@ h1 {
   margin: 0;
   letter-spacing: .1em;
   hyphens: none;
+  
+  .article2 & {
+    font-size: 5.5rem;
+    letter-spacing: 0;
+  }
 }
 
 h2 {
@@ -160,6 +197,12 @@ a {
   color: $red;
   text-transform: uppercase;
   z-index: -1;
+
+  .article2 & {
+    mix-blend-mode: normal;
+    color: #000;
+    text-transform: none;
+  }
 }
 
 
@@ -173,6 +216,10 @@ a {
   background-size: cover;
   filter: grayscale(100%);
   z-index: -1;
+
+  .article2 & {
+    height: 75vh;
+  }
 }
 
 .root {
@@ -193,6 +240,10 @@ header.root {
   padding-top: $paddingTop;
   color: #fff;
 
+  .article2 & {
+    height: 75vh;
+  }
+
   > .container {
     height: 100%;
   }
@@ -200,15 +251,20 @@ header.root {
   &::before {
     content: '';
     position: absolute;
+    height: 100vh;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100vh;
-    background: $blue;
+    background: $green;
     opacity: .75;
     z-index: -1;
     mix-blend-mode: multiply;
+    
+    .article2 & {
+      height: 75vh;
+      mix-blend-mode: lighten;
+    }
   }
    
     .title {
@@ -221,14 +277,24 @@ header.root {
         left: 100%;
         transform: rotateZ(90deg) translateY(3rem);
         transform-origin: top left;
+        
+        .article2 & {
+          left: 0;
+          transform: rotateZ(-10deg) translateY(-3rem);
+          transform-origin: center;
+        }
       }
     }
-
+    
     .intro {
       font-size: 2.25rem;
-      // background: hotpink;
       margin-bottom: 10%;
       font-weight: 400;
+      
+      .article2 & {
+        transform: rotateZ(-7deg);
+        color: #000;
+      }
     }
 
     .author {

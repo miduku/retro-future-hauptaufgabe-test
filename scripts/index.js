@@ -1,5 +1,5 @@
 console.clear();
-// import Rellax from 'rellax';
+import Rellax from 'rellax';
 
 let D = document;
 let DH = D.documentElement.clientHeight;
@@ -13,14 +13,14 @@ let el = {
 
 let t = 0;
 
-// // https://github.com/dixonandmoe/rellax
-// const rellax = new Rellax('.rellax', {
-//   // speed: -10,
-//   // callback: function(positions) {
-//   //   // callback every position change
-//   //   console.log(positions);
-//   // }
-// });
+// https://github.com/dixonandmoe/rellax
+const rellax = new Rellax('.rellax', {
+  // speed: -10,
+  // callback: function(positions) {
+  //   // callback every position change
+  //   console.log(positions);
+  // }
+});
 
 
 window.addEventListener('load', handler);
