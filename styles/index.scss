@@ -68,11 +68,17 @@ nav {
     color: #fff;
     font-size: 1.25rem;
     font-weight: 600;
+    margin: 0;
+    padding: 0;
 
     a {
       color: #fff;
     }
   }
+}
+
+img {
+  width: 100%;
 }
 
 // Kellum Image Replacement
@@ -128,6 +134,13 @@ nav {
   //   margin-bottom: calc(1.5rem - #{$padding});
   // }
 
+  & > & {
+    // margin-left: (-$padding);
+    padding: 0;
+    // margin-top: (-$padding);
+    // width: calc(100% + #{$padding}) !important;
+  }
+
   &.is-streched {
     align-items: stretch;
     height: 100%;
@@ -155,6 +168,12 @@ h2 {
   margin: 0;
   letter-spacing: .1em;
   hyphens: none;
+  
+  .article2 & {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
 }
 
 p {
@@ -177,13 +196,36 @@ a {
   padding-top: $paddingTop/2;
   mix-blend-mode: hard-light;
 
+  .article2 & {
+    color: #111;
+    mix-blend-mode: normal;
+  }
+
+  img {
+    .article2 & {
+      // margin-left: -($padding*6);
+      // margin-right: -($padding*4);
+    }
+  }
+
   header {
     position: absolute;
+
+    .article2 & {
+      position: relative;
+      padding-top: $paddingTop/2;
+    }
 
     h2 {
       position: absolute;
       transform-origin: top left;
       transform: rotate(90deg) translateY(-3rem);
+      
+      .article2 & {
+        transform-origin: center;
+        transform: rotate(10deg) translateX(-8rem) translateY(1.5rem);
+        color: $red;
+      }
     }
   }
 
@@ -222,9 +264,42 @@ a {
   }
 }
 
+.background-text {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  // background: pink;
+  z-index: -1;
+  left: 0;
+  overflow: hidden;
+  
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+    p {
+      position: absolute;
+      width: 1000%;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      hyphens: none;
+    }
+}
+
 .root {
   width: 100%;
   
+}
+
+.has-background-white {
+  background-color: #fff;
 }
 
 .container {
@@ -256,12 +331,13 @@ header.root {
     bottom: 0;
     left: 0;
     right: 0;
-    background: $green;
+    background: $blue;
     opacity: .75;
     z-index: -1;
     mix-blend-mode: multiply;
     
     .article2 & {
+      background: $green;
       height: 75vh;
       mix-blend-mode: lighten;
     }
@@ -321,4 +397,40 @@ header.root {
 main.root {
   background: $yellow-alpha;
 
+  .article2 & {
+    background: transparent;
+  }
+}
+
+footer {
+  // background: pink;
+  margin: $paddingTop 0;
+
+  nav {
+    background: yellow;
+    transform: rotateZ(-15deg);
+    line-height: 1.5;
+    
+    ul {
+      padding: $padding*0.25 $padding;
+    }
+
+    li {
+      display: inline;
+    }
+
+    a,
+    li {
+      font-weight: 600;
+      color: #111;
+    }
+
+    a {
+      &:focus,
+      &:hover {
+        color: magenta;
+        text-decoration: none;
+      }
+    }
+  }
 }

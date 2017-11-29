@@ -3,12 +3,14 @@ import Rellax from 'rellax';
 
 let D = document;
 let DH = D.documentElement.clientHeight;
+let DOH = D.documentElement.offsetHeight;
 let DS = D.documentElement.scrollTop;
 let DSM = D.documentElement.scrollHeight - DH; // maximum scrollTop
 
 let el = {
   kebab: D.querySelector('.kebab'),
-  zutaten: D.querySelectorAll('.zutat')
+  zutaten: D.querySelectorAll('.zutat'),
+  bgrText: D.querySelector('.background-text')
 }
 
 let t = 0;
@@ -29,10 +31,16 @@ window.addEventListener('scroll', handler);
 function handler(e) {
   D = document;
   DH = D.documentElement.clientHeight;
+  DOH = D.documentElement.offsetHeight;
   DS = D.documentElement.scrollTop;
   DSM = D.documentElement.scrollHeight - DH; // maximum scrollTop
-  
+
   t = map(DS, 0, DSM, .1, 1);
+  
+  if (el.bgrText) {
+    el.bgrText.style.height = `${DOH}px`;
+  }
+  
 
   for (let i = 0; i < el.zutaten.length; i++) {
     const zutat = el.zutaten[i];
