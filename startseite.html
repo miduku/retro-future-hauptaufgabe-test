@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Beiträge</title>
     <link href="./styles/index.css" rel="stylesheet">   
     <style>
         /* Fonts */
@@ -15,15 +15,36 @@
         @import url('https://fonts.googleapis.com/css?family=Boogaloo');
         @import url('https://fonts.googleapis.com/css?family=Contrail+One');
         @import url('https://fonts.googleapis.com/css?family=Carter+One');
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
 
         p {
             margin: 0;
             font-size: 3rem;
         }
-        .column {
-            /* border: 1px solid #ccc;
-            border-radius: 20px; */
+        a {
+            display: block;
+            color: #000;
+            transition-duration: 1s;
         }
+        a:hover {
+            text-decoration: none;
+            background-image: url(/assets/img/background.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        h1 {
+            font-family: "Roboto", sans-serif;
+            font-size: 2rem;
+            text-decoration: line-through;
+            text-align: center;
+            margin: 1vh; 
+        }
+        .bild {
+            background: none;
+        }
+        /* .logo {
+            width: 10%;
+        } */
         .beitrag-1, .beitrag-3, .beitrag-4, .beitrag-6 {
             margin-top: 5vh;
         }
@@ -69,9 +90,10 @@
         .bild-3 {
             position: absolute;
             width: 30%;
-            top: 18%;
+            top: 20%;
             right: 12%;
             animation: 1s alternate wobble infinite;
+            animation-timing-function: linear;
         }
         .beitrag-4 {
             position: relative;
@@ -102,7 +124,7 @@
             top: 0%;
             left: 30%;
             width: 35%;
-            animation: 4s infinite normal rotation;
+            animation: 4s infinite rotation;
         }
         .beitrag-6 {
             position: relative;
@@ -118,9 +140,16 @@
             width: 30%;
             top: 0;
             right: -5%;
+            z-index: 1;
+            animation: 5s infinite alternate fall;
+            animation-timing-function: linear;
         }
-        .bild {
-            background: none;
+        .bild-7 {
+            position: absolute;
+            width: 30%;
+            top: 15%;
+            right: -28%;
+            animation: 5s infinite alternate displaying;
         }
 
         /* Animations */
@@ -170,48 +199,86 @@
                 opacity: 0;
             }
         }
+        @keyframes fall {
+            from {
+                transform: rotate(-80deg);
+            }
+            15% {
+                transform: rotate(-80deg);
+            }
+            25% {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(0);
+            }
+        }
+        @keyframes displaying {
+            from {
+                opacity: 0;
+            }
+            25% {
+                opacity: 0;
+            }
+            30% {
+                opacity: 1;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style> 
 </head>
 <body>
     <div class="container">
         <div class="columns is-stretched">
+            <div class="column is-12 is-stretched beitraege">
+                <!-- <img class="logo" src="/assets/img/semikolon-logo-komplett-k.png"> -->
+                <h1>Beiträge</h1>
+            </div>
             <div class="column is-4 is-stretched beitrag-1">
-                <p>Warum das Studiroulette ein Ende finden muss</p>
-                <img class="bild bild-1" src="assets/img/bild-1b.svg">
+                <a href="#">
+                    <p>Warum das Studiroulette ein Ende finden muss</p>
+                    <img class="bild bild-1" src="assets/img/bild-1b.svg">
+                </a>
             </div>
             <div class="column is-4 is-offset-3 is-stretched beitrag-2">
-                <p>Nextbike: FHP-Studierende bewegen sich</p>
-                <img class="bild bild-2" src="assets/img/bild-2.svg">
+                <a href="#">
+                    <p>Nextbike: FHP-Studierende bewegen sich</p>
+                    <img class="bild bild-2" src="assets/img/bild-2.svg">
             </div>
         </div>
         <div class="columns is-stretched">
             <div class="column is-4 is-offset-3 is-stretched beitrag-3">
-                <p>Und dann kam der Döner</p>
-                <img class="bild bild-3" src="assets/img/bild-3.svg">
+                <a href="#">   
+                    <p>Und dann kam der Döner</p>
+                    <img class="bild bild-3" src="assets/img/bild-3.svg">
+                </a>
             </div>
         </div>
         <div class="columns is-stretched">
             <div class="column is-4 is-offset-1 is-stretched beitrag-4">
-                <p>Bringt uns unsere Tassen zurück!</p>
-                <img class="bild bild-4" src="assets/img/bild-4.svg">
+                <a href="#">
+                    <p>Bringt uns unsere Tassen zurück!</p>
+                    <img class="bild bild-4" src="assets/img/bild-4.svg">
+                </a>
             </div>
             <div class="column is-4 is-offset-1 is-stretched beitrag-5">
-                <p>Und dann wurde es still in der FES</p>
-                <img class="bild bild-5" src="assets/img/bild-5.svg">
+                <a href="#">
+                    <p>Und dann wurde es still in der FES</p>
+                    <img class="bild bild-5" src="assets/img/bild-5.svg">
+                </a>
             </div>
         </div>
         <div class="columns is-stretched">
             <div class="column is-4 is-offset-2 is-stretched beitrag-6">
-                <p>Pappbecher kostet extra</p>
-                <img class="bild bild-6" src="assets/img/bild-6.svg">
+                <a href="#">
+                    <p>Pappbecher kostet extra</p>
+                    <img class="bild bild-6" src="assets/img/bild-6.svg">
+                    <img class="bild bild-7" src="assets/img/bild-7.svg">
+                </a>
             </div>
         </div>
     </div>
-
-
-
-    <script>
-        
-    </script>
 </body>
 </html>
