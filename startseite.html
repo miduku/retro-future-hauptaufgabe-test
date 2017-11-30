@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beiträge</title>
+    <link href="./styles/index.css" rel="stylesheet">   
+    <style>
+        /* Fonts */
+        @import url('https://fonts.googleapis.com/css?family=Amatic+SC:700');
+        @import url('https://fonts.googleapis.com/css?family=Oswald:700');
+        @import url('https://fonts.googleapis.com/css?family=PT+Serif');
+        @import url('https://fonts.googleapis.com/css?family=Muli');
+        @import url('https://fonts.googleapis.com/css?family=Boogaloo');
+        @import url('https://fonts.googleapis.com/css?family=Contrail+One');
+        @import url('https://fonts.googleapis.com/css?family=Carter+One');
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+        p {
+            margin: 0;
+            font-size: 3rem;
+        }
+        a {
+            display: block;
+            color: #000;
+            transition-duration: 1s;
+        }
+        a:hover {
+            text-decoration: none;
+            background-image: url(/assets/img/background.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        h1 {
+            font-family: "Roboto", sans-serif;
+            font-size: 2rem;
+            text-decoration: line-through;
+            text-align: center;
+            margin: 1vh; 
+        }
+        .bild {
+            background: none;
+        }
+        /* .logo {
+            width: 10%;
+        } */
+        .beitrag-1, .beitrag-3, .beitrag-4, .beitrag-6 {
+            margin-top: 5vh;
+        }
+        .beitrag-1 {
+            position: relative;
+            margin-top: 12vh;
+        }
+        .beitrag-1 p {
+            font-family: "Boogaloo", sans-serif;
+            font-size: 4rem;
+        }
+        .bild-1 {
+            position: absolute;
+            top: -28%;
+            right: -8%;
+            width: 40%;
+            animation: .7s infinite alternate blinky;
+            transform: rotate(-10deg);
+        }
+        .beitrag-2 {
+            position: relative;
+            margin-top: 5vh;
+        }
+        .beitrag-2 p {
+            font-family: "Contrail One", sans-serif;
+            font-size: 4rem;
+        }
+        .bild-2 {
+            position: absolute;
+            width: 19%;
+            bottom: -8%;
+            animation: 3s linear moveit infinite;
+        }
+        .beitrag-3 {
+            position: relative;
+            margin-top: 10vh;
+        }
+        .beitrag-3 p {
+            font-family: 'Amatic SC', cursive;
+            font-size: 7rem;
+            line-height: 1.1;
+        }
+        .bild-3 {
+            position: absolute;
+            width: 30%;
+            top: 20%;
+            right: 12%;
+            animation: 1s alternate wobble infinite;
+            animation-timing-function: linear;
+        }
+        .beitrag-4 {
+            position: relative;
+            margin-top: 12vh;
+        }
+        .beitrag-4 p {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 5rem;
+        }
+        .bild-4 {
+            position: absolute;
+            width: 35%;
+            left: 3%;
+            top: 15%;
+            animation: 3s infinite alternate blinky2;
+        }
+        .beitrag-5 {
+            margin-top: 35vh;
+            position: relative;
+        }
+        .beitrag-5 p {
+            font-family: "PT Serif", serif;
+            font-size: 4.5rem;
+        }
+        .bild-5 {
+            position: absolute;
+            top: 0%;
+            left: 30%;
+            width: 35%;
+            animation: 4s infinite rotation;
+        }
+        .beitrag-6 {
+            position: relative;
+            margin-top: 10vh;
+            margin-bottom: 10vh;
+        }
+        .beitrag-6 p {
+            font-family: "Carter One", sans-serif;
+            font-size: 4.5rem;
+        }
+        .bild-6 {
+            position: absolute;
+            width: 30%;
+            top: 0;
+            right: -5%;
+            z-index: 1;
+            animation: 5s infinite alternate fall;
+            animation-timing-function: linear;
+        }
+        .bild-7 {
+            position: absolute;
+            width: 30%;
+            top: 15%;
+            right: -28%;
+            animation: 5s infinite alternate displaying;
+        }
+
+        /* Animations */
+        @keyframes blinky {
+            from {
+                opacity: .3;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes blinky2 {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes wobble {
+            from {
+                transform: rotate(-10deg);
+            }
+            to {
+                transform: rotate(10deg);
+            }
+        }
+        @keyframes rotation {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes moveit {
+            from {
+                left: 80%;
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            to {
+                left: -40%;
+                transform: translateX(40%);
+                opacity: 0;
+            }
+        }
+        @keyframes fall {
+            from {
+                transform: rotate(-80deg);
+            }
+            15% {
+                transform: rotate(-80deg);
+            }
+            25% {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(0);
+            }
+        }
+        @keyframes displaying {
+            from {
+                opacity: 0;
+            }
+            25% {
+                opacity: 0;
+            }
+            30% {
+                opacity: 1;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style> 
+</head>
+<body>
+    <div class="container">
+        <div class="columns is-stretched">
+            <div class="column is-12 is-stretched beitraege">
+                <!-- <img class="logo" src="/assets/img/semikolon-logo-komplett-k.png"> -->
+                <h1>Beiträge</h1>
+            </div>
+            <div class="column is-4 is-stretched beitrag-1">
+                <a href="#">
+                    <p>Warum das Studiroulette ein Ende finden muss</p>
+                    <img class="bild bild-1" src="assets/img/bild-1b.svg">
+                </a>
+            </div>
+            <div class="column is-4 is-offset-3 is-stretched beitrag-2">
+                <a href="#">
+                    <p>Nextbike: FHP-Studierende bewegen sich</p>
+                    <img class="bild bild-2" src="assets/img/bild-2.svg">
+            </div>
+        </div>
+        <div class="columns is-stretched">
+            <div class="column is-4 is-offset-3 is-stretched beitrag-3">
+                <a href="#">   
+                    <p>Und dann kam der Döner</p>
+                    <img class="bild bild-3" src="assets/img/bild-3.svg">
+                </a>
+            </div>
+        </div>
+        <div class="columns is-stretched">
+            <div class="column is-4 is-offset-1 is-stretched beitrag-4">
+                <a href="#">
+                    <p>Bringt uns unsere Tassen zurück!</p>
+                    <img class="bild bild-4" src="assets/img/bild-4.svg">
+                </a>
+            </div>
+            <div class="column is-4 is-offset-1 is-stretched beitrag-5">
+                <a href="#">
+                    <p>Und dann wurde es still in der FES</p>
+                    <img class="bild bild-5" src="assets/img/bild-5.svg">
+                </a>
+            </div>
+        </div>
+        <div class="columns is-stretched">
+            <div class="column is-4 is-offset-2 is-stretched beitrag-6">
+                <a href="#">
+                    <p>Pappbecher kostet extra</p>
+                    <img class="bild bild-6" src="assets/img/bild-6.svg">
+                    <img class="bild bild-7" src="assets/img/bild-7.svg">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
